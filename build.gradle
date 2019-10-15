@@ -19,6 +19,7 @@ apply plugin:"war"
 apply plugin:"org.grails.grails-web"
 apply plugin:"asset-pipeline"
 apply plugin:"org.grails.grails-gsp"
+apply plugin:"java"
 
 repositories {
     mavenLocal()
@@ -72,6 +73,14 @@ tasks.withType(Test) {
     systemProperty "geb.build.reportsDir", reporting.file("geb/integrationTest")
     systemProperty "webdriver.chrome.driver", System.getProperty('webdriver.chrome.driver')
     systemProperty "webdriver.gecko.driver", System.getProperty('webdriver.gecko.driver')
+}
+
+test {
+    testLogging.showStandardStreams = true
+    //testLogging.showStandardStreams = true
+    //testLogging.exceptionFormat = 'full'
+    //testLogging.showStandardStreams = true
+    //testLogging.exceptionFormat = 'full'
 }
 
 assets {
